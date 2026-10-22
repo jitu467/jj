@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Jyoti</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌹</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#7d1d4d;--baby:#f8c8dc;--ink:#a23a6a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body,#root{height:100%;margin:0}
+body{background:radial-gradient(circle at 50% 30%,#fde6ef,#f9d3e3 55%,#f4bcd3);font-family:Fredoka,system-ui,sans-serif;overflow:hidden;color:var(--ink)}
+.stage{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.hint{font-size:clamp(14px,3.6vw,18px);text-align:center;padding:0 16px;min-height:2.6em;animation:fade 1s 3.2s both}
+svg.bq{width:min(94vw,520px);max-height:76dvh;height:auto;overflow:visible}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{transform:translateY(140px);opacity:0}to{transform:none;opacity:1}}
+@keyframes unfold{from{transform:scale(.2,.05);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scale(0) rotate(-90deg)}to{transform:none}}
+@keyframes drop{from{transform:translateY(-220px);opacity:0}60%{transform:translateY(12px);opacity:1}to{transform:none;opacity:1}}
+@keyframes pulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,110,170,0))}50%{filter:drop-shadow(0 0 12px #ff5fa2)}}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+.box{animation:rise .9s cubic-bezier(.2,.9,.3,1) both}
+.paper{transform-box:fill-box;transform-origin:50% 100%;animation:unfold 1s .7s both ease-out}
+.pop{transform-box:fill-box;transform-origin:50% 50%;animation:pop .7s var(--dl) cubic-bezier(.2,1.5,.4,1) both}
+.cdrop{animation:drop 1s 2.3s both}
+.cglow{animation:pulse 1.8s 3.4s infinite}
+.tw{transform-box:fill-box;transform-origin:50% 50%;animation:tw 2.4s var(--dl) infinite ease-in-out}
+.rose,.choc{cursor:pointer;outline:none}
+.hov{transform-box:fill-box;transform-origin:50% 50%;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){.rose:hover .hov{transform:scale(1.14) rotate(8deg)}.choc:hover .hov{transform:scale(1.06)}}
+.rose:focus-visible .hov{transform:scale(1.14) rotate(8deg)}
+.rose,.choc{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.rose:focus-visible .hov,.choc:focus-visible .hov{filter:drop-shadow(0 0 6px var(--wine))}
+.pt{transform-box:fill-box;transform-origin:50% 100%;transform:rotate(var(--a)) scale(var(--s,1))}
+.bloom .pt{animation:bloom 1.1s var(--dl) cubic-bezier(.2,1.3,.4,1) both}
+@keyframes bloom{from{transform:rotate(calc(var(--a)*.25)) scale(.22)}to{transform:rotate(var(--a)) scale(var(--s,1))}}
+/* rose message overlay */
+.ov{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:rgba(249,211,227,.8);backdrop-filter:blur(10px);animation:fade .35s both}
+.ov.out{animation:fade .3s reverse both}
+.flower{position:relative;--S:min(88vw,460px,70dvh);width:var(--S);height:var(--S)}
+.flower svg{width:100%;height:100%;overflow:visible}
+.core{transform-box:fill-box;transform-origin:50% 50%;animation:core 1s 1s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes core{from{transform:scale(0)}to{transform:none}}
+.msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center}
+.msg p{margin:0;width:46%;font-family:Pacifico,cursive;color:var(--baby);font-size:calc(var(--S)*.07);line-height:1.35;text-shadow:0 0 12px rgba(248,200,220,.55)}
+.w{display:inline-block;margin:0 .12em;animation:wordIn .9s calc(1.5s + var(--i)*.22s) cubic-bezier(.2,.9,.3,1.2) both}
+.w.big{display:block;font-size:1.45em;margin-bottom:.1em}
+@keyframes wordIn{from{opacity:0;transform:translateY(16px) scale(.7);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.fl{position:absolute;color:#ff7fae;opacity:0;animation:floaty 3s var(--dl) infinite}
+@keyframes floaty{0%{opacity:0;transform:translateY(0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-120px) scale(1.1)}}
+.x{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--wine);font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(160,50,100,.25)}
+.x:focus-visible,.re:focus-visible{outline:3px solid var(--wine)}
+/* chocolate reveal */
+.rv{position:fixed;inset:0;z-index:30;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 30%,#fde6ef,#f9d3e3 55%,#f4bcd3);animation:fade .5s both}
+.bar{position:relative;height:min(60dvh,440px);aspect-ratio:1/2.1;animation:barIn .6s cubic-bezier(.2,1.3,.4,1) both;transition:opacity .6s}
+@keyframes barIn{from{transform:scale(.3) rotate(-10deg);opacity:0}to{transform:none;opacity:1}}
+.shk{position:absolute;inset:0}
+.p-s .shk{animation:shake .3s .7s 3}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg) scale(1.03)}75%{transform:rotate(4deg) scale(1.03)}}
+.chocbar{position:absolute;inset:3% 9%;border-radius:12px;background:linear-gradient(145deg,#7b3f22,#4a2313);background-image:linear-gradient(rgba(0,0,0,.3) 2px,transparent 2px),linear-gradient(90deg,rgba(0,0,0,.3) 2px,transparent 2px),linear-gradient(145deg,#7b3f22,#4a2313);background-size:100% 12.5%,50% 100%,100% 100%;box-shadow:inset 0 0 0 5px rgba(255,255,255,.07),0 14px 30px rgba(120,40,80,.35)}
+.go .chocbar{animation:glow 1.2s both}
+@keyframes glow{0%{transform:scale(.9)}50%{transform:scale(1.07);box-shadow:0 0 50px 12px rgba(255,255,255,.9)}100%{transform:none}}
+.wh{position:absolute;inset:0;background:linear-gradient(160deg,#6b32a0,#3b1763);display:grid;place-items:center;border-radius:10px;transform-origin:50% 100%;transition:transform 1.1s cubic-bezier(.5,0,.8,.4),opacity 1.1s ease-in}
+.wh::before,.wh::after{content:"";position:absolute;left:0;right:0;height:6%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 3px,transparent 3px 8px)}
+.wh::before{top:0}.wh::after{bottom:0}
+.lbl{font-weight:600;font-size:min(6.4dvh,46px);line-height:1.05;color:#fff;text-align:center;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.go .wl{transform:translateX(-140%) rotate(-26deg);opacity:0}
+.go .wr{transform:translateX(140%) rotate(26deg);opacity:0}
+.bp{position:absolute;left:50%;top:50%;font-size:var(--fs);animation:burst 1.9s var(--dl) cubic-bezier(.1,.8,.3,1) both;pointer-events:none}
+@keyframes burst{0%{transform:translate(-50%,-50%) scale(0);opacity:1}70%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1) rotate(var(--r));opacity:0}}
+.flare{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px;border-radius:50%;background:radial-gradient(#fff,rgba(255,255,255,0) 70%);animation:flare 1.2s both}
+@keyframes flare{from{transform:scale(0);opacity:1}to{transform:scale(40);opacity:0}}
+.p-u .bar{animation:barOut .6s both}
+@keyframes barOut{to{opacity:0;transform:scale(.8);visibility:hidden}}
+.doodle{position:absolute;inset:0;width:100%;height:100%}
+.doodle .d{fill:none;stroke:#ffd9e8;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.go .d{animation:draw 1s var(--dl) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.doodle .f{fill:#ff9fc2;opacity:0}
+.go .f{animation:showin .6s var(--dl) forwards}
+.doodle .dt{fill:#ffd9e8;opacity:0;font-family:Pacifico,cursive}
+.go .dt{animation:showin .8s 2.4s forwards}
+@keyframes showin{to{opacity:.9}}
+.bunny{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .8s}
+.p-u .bunny{opacity:1}
+.bunny svg{width:min(96vw,calc(96dvh*.714));height:auto;filter:drop-shadow(0 12px 18px rgba(200,90,140,.3))}
+.p-u .bunny svg{animation:bunIn 1.1s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes bunIn{from{transform:scale(.2) translateY(30%)}to{transform:none}}
+.ear{transform-box:fill-box;transform-origin:50% 100%;animation:wig 2.4s ease-in-out infinite}
+.ear.r{animation-delay:.5s}
+@keyframes wig{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+.eye{transform-box:fill-box;transform-origin:50% 50%;animation:blink 4s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.bn{animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.petal{position:absolute;top:-10dvh;animation:fall linear infinite;pointer-events:none}
+@keyframes fall{to{transform:translate(var(--sx),115dvh) rotate(360deg)}}
+.re{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);border:0;border-radius:999px;padding:10px 22px;background:#fff;color:var(--wine);font:600 16px Fredoka,system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(160,50,100,.25);opacity:0;pointer-events:none;transition:opacity .6s 1.5s}
+.p-u .re{opacity:1;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){.cglow,.tw,.ear,.eye,.bn,.petal,.fl{animation:none}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+const h = React.createElement, { useState, useEffect, useMemo } = React;
+
+const ROSES = [
+  { c:'#d62839', d:'#8f1226', l:'#ff6b7a', x:105, y:190, msg:'Jyoti you are beautiful' },
+  { c:'#f27aa5', d:'#c2457a', l:'#ffc1d6', x:292, y:178, msg:'Jyoti you are adorable' },
+  { c:'#f7c531', d:'#d49a10', l:'#ffe58a', x:78,  y:280, msg:'Jyoti you have the sweetest energy' },
+  { c:'#ec5f9a', d:'#b52f6c', l:'#ffb3d1', x:322, y:268, msg:'Jyoti you are gorgeous' },
+  { c:'#f7c531', d:'#d49a10', l:'#ffe58a', x:150, y:328, msg:'Jyoti You are stunning' },
+  { c:'#d62839', d:'#8f1226', l:'#ff6b7a', x:258, y:332, msg:'Jyoti You look incredible' }
+];
+
+/* layered rose petals, drawn around (0,0) */
+function petals(R, o, bloom) {
+  const out = []; let k = 0;
+  const layer = (n, off, rx, ry, fill, s, base) => {
+    for (let i = 0; i < n; i++)
+      out.push(h('ellipse', { key:k++, className:'pt', cx:0, cy:-ry, rx, ry, fill, stroke:o.d, strokeWidth:R*.03,
+        style:{ '--a':(off + i*360/n)+'deg', '--s':s, '--dl':(bloom ? base + i*.08 : 0)+'s' } }));
+  };
+  layer(6, 0,  R*.5,  R*.55, o.c, 1,   .1);
+  layer(5, 36, R*.42, R*.46, o.l, .82, .4);
+  layer(4, 20, R*.3,  R*.36, o.c, .6,  .7);
+  out.push(h('circle', { key:k++, r:R*.13, fill:o.d }));
+  out.push(h('path', { key:k++, d:`M0 0 q${R*.1} ${-R*.02} ${R*.08} ${-R*.1} q${-R*.12} ${-R*.08} ${-R*.2} ${R*.02}`, fill:'none', stroke:o.l, strokeWidth:R*.025 }));
+  return out;
+}
+
+function BRose({ o, i, seen, onOpen }) {
+  const act = () => onOpen(i);
+  return h('g', { transform:`translate(${o.x} ${o.y})`, className:'rose', role:'button', tabIndex:0,
+      'aria-label':`Open rose ${i+1}`, onClick:act, onKeyDown:e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); act(); } } },
+    h('g', { className:'pop', style:{ '--dl':(1.5 + i*.18)+'s' } },
+      h('g', { className:'hov' }, petals(38, o, false),
+        seen && h('text', { y:-44, textAnchor:'middle', fontSize:16, fill:'#fff', stroke:'#e0709b', strokeWidth:.6 }, '♥'))));
+}
+
+function Bouquet({ seen, onRose, onChoco }) {
+  const dots = useMemo(() => {
+    const a = [];
+    for (let i = 0; i < 60; i++) {
+      const x = 30 + (i*97) % 340, y = 30 + (i*53) % 350;
+      if (((x-200)/180)**2 + ((y-225)/195)**2 < 1) a.push([x, y, 2 + i%3, (i%7)*.35]);
+    }
+    return a;
+  }, []);
+  const leaf = (x, y, r, k) => h('ellipse', { key:k, cx:x, cy:y, rx:13, ry:34, fill:k%2 ? '#5fae6b' : '#7cc785', transform:`rotate(${r} ${x} ${y})` });
+  return h('svg', { className:'bq', viewBox:'0 0 400 450', role:'img', 'aria-label':'A bouquet of six roses and one chocolate' },
+    h('g', { className:'paper' },
+      h('path', { d:'M200 120 L92 330 Q200 372 308 330 Z', fill:'#fff', stroke:'#f1e0e8', strokeWidth:2 }),
+      h('path', { d:'M200 120 L150 340 M200 120 L250 340', stroke:'#f1e0e8', strokeWidth:2, fill:'none' }),
+      h('path', { d:'M120 250 Q60 290 100 350 L150 340 Z M280 250 Q340 290 300 350 L250 340 Z', fill:'#fff6fa', stroke:'#f1e0e8', strokeWidth:2 })),
+    [leaf(55,330,-50,1), leaf(345,330,50,2), leaf(40,230,-75,3), leaf(360,225,75,4), leaf(110,120,-30,5), leaf(290,115,30,6)],
+    h('g', { className:'paper' }, dots.map((d, i) => h('circle', { key:i, cx:d[0], cy:d[1], r:d[2], fill:'#fff', className:'tw', style:{ '--dl':d[3]+'s' } }))),
+    h('g', { className:'cdrop' },
+      h('g', { className:'cglow' },
+        h('g', { className:'choc', role:'button', tabIndex:0, 'aria-label':'Click here to open the chocolate', onClick:onChoco,
+            onKeyDown:e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); onChoco(); } } },
+          h('g', { transform:'translate(200 140) rotate(-4)' },
+            h('rect', { x:-52, y:-104, width:104, height:182, fill:'transparent' }),
+            h('g', { className:'hov' },
+            h('rect', { x:-36, y:-88, width:72, height:150, rx:6, fill:'#5b2a86' }),
+            h('rect', { x:-36, y:-88, width:72, height:12, rx:4, fill:'#7a46a8' }),
+            h('rect', { x:-36, y:50, width:72, height:12, rx:4, fill:'#7a46a8' }),
+            h('text', { y:-14, textAnchor:'middle', fontSize:19, fontWeight:600, fill:'#fff', fontFamily:'Fredoka,sans-serif' }, 'Click'),
+            h('text', { y:10, textAnchor:'middle', fontSize:19, fontWeight:600, fill:'#fff', fontFamily:'Fredoka,sans-serif' }, 'Here')))))),
+    ROSES.map((o, i) => h(BRose, { key:i, o, i, seen:seen.includes(i), onOpen:onRose })),
+    h('g', { className:'box' },
+      h('rect', { x:92, y:372, width:216, height:66, rx:4, fill:'#e7cfae' }),
+      h('rect', { x:86, y:366, width:228, height:18, rx:4, fill:'#f0dcc0' }),
+      h('rect', { x:92, y:392, width:216, height:26, fill:'#d62839' }),
+      h('path', { d:'M200 392 C150 350 140 400 200 402 C260 400 250 350 200 392Z', fill:'#e63b4c' }),
+      h('path', { d:'M200 402 L172 440 L192 432 L200 442 L208 432 L228 440Z', fill:'#c01f30' }),
+      h('circle', { cx:200, cy:398, r:9, fill:'#b81c2d' })));
+}
+
+/* message shown inside the opened rose */
+function RoseOpen({ i, onClose }) {
+  const o = ROSES[i], [out, setOut] = useState(false);
+  const close = () => { setOut(true); setTimeout(onClose, 300); };
+  useEffect(() => { const f = e => e.key === 'Escape' && close(); addEventListener('keydown', f); return () => removeEventListener('keydown', f); }, []);
+  const words = o.msg.split(' ');
+  const hearts = [[10,60],[85,52],[22,18],[75,14],[48,6],[92,30],[4,36]];
+  return h('div', { className:'ov' + (out ? ' out' : ''), onClick:close },
+    h('button', { className:'x', onClick:close, 'aria-label':'Close' }, '✕'),
+    h('div', { className:'flower', onClick:e => e.stopPropagation() },
+      h('svg', { viewBox:'0 0 300 300' },
+        h('defs', null, h('radialGradient', { id:'wine' }, h('stop', { offset:0, stopColor:'#9b2a62' }), h('stop', { offset:1, stopColor:'#4a0e2e' }))),
+        h('g', { transform:'translate(150 150)', className:'bloom' },
+          petals(105, o, true).slice(0, -4).concat(),
+          h('circle', { className:'core', r:84, fill:'url(#wine)', stroke:o.l, strokeWidth:2 }))),
+      h('div', { className:'msg' }, h('p', null, words.map((w, k) => h('span', { key:k, className:'w' + (k === 0 ? ' big' : ''), style:{ '--i':k } }, w)))),
+      hearts.map((p, k) => h('span', { key:k, className:'fl', style:{ left:p[0]+'%', top:p[1]+'%', '--dl':(2 + k*.45)+'s', fontSize:14 + k%3*6 } }, '♥'))));
+}
+
+const ZZ = [...Array(11)].map((_, i) => `${i % 2 ? 55 : 45}% ${i*10}%`).join(',');
+const CL = `polygon(0 0,${ZZ},0 100%)`, CR = `polygon(100% 0,${ZZ},100% 100%)`;
+
+function Bunny() {
+  const S = { fill:'#fff', stroke:'#f0b7cf', strokeWidth:4 };
+  return h('svg', { viewBox:'0 0 400 560', role:'img', 'aria-label':'A cute white bunny' },
+    h('g', { className:'ear' }, h('ellipse', { cx:150, cy:125, rx:38, ry:105, transform:'rotate(-8 150 125)', ...S }), h('ellipse', { cx:150, cy:130, rx:20, ry:80, transform:'rotate(-8 150 130)', fill:'#ffc4d8' })),
+    h('g', { className:'ear r' }, h('ellipse', { cx:250, cy:125, rx:38, ry:105, transform:'rotate(8 250 125)', ...S }), h('ellipse', { cx:250, cy:130, rx:20, ry:80, transform:'rotate(8 250 130)', fill:'#ffc4d8' })),
+    h('g', { className:'bn' },
+      h('ellipse', { cx:200, cy:470, rx:120, ry:90, ...S }),
+      h('ellipse', { cx:130, cy:545, rx:48, ry:20, ...S }), h('ellipse', { cx:270, cy:545, rx:48, ry:20, ...S }),
+      h('path', { d:'M200 505 c-30 -22 -26 -46 0 -34 c26 -12 30 12 0 34z', fill:'#ff9bbd' }),
+      h('ellipse', { cx:200, cy:310, rx:150, ry:125, ...S }),
+      h('ellipse', { cx:150, cy:455, rx:26, ry:32, ...S }), h('ellipse', { cx:250, cy:455, rx:26, ry:32, ...S }),
+      h('ellipse', { cx:105, cy:342, rx:28, ry:17, fill:'#ffb3cd', opacity:.85 }), h('ellipse', { cx:295, cy:342, rx:28, ry:17, fill:'#ffb3cd', opacity:.85 }),
+      h('g', { className:'eye' }, h('circle', { cx:145, cy:300, r:18, fill:'#3a2230' }), h('circle', { cx:151, cy:293, r:6, fill:'#fff' })),
+      h('g', { className:'eye' }, h('circle', { cx:255, cy:300, r:18, fill:'#3a2230' }), h('circle', { cx:261, cy:293, r:6, fill:'#fff' })),
+      h('ellipse', { cx:200, cy:332, rx:13, ry:9, fill:'#ff8fb5' }),
+      h('path', { d:'M200 341 v10 M200 351 q-15 15 -30 2 M200 351 q15 15 30 2', fill:'none', stroke:'#c06088', strokeWidth:4, strokeLinecap:'round' })));
+}
+
+/* original doodles drawn on the chocolate */
+function Doodles() {
+  const heart = (x, y, k) => `M${x} ${y+k*.9}C${x-k*1.6} ${y-k*.2} ${x-k*.7} ${y-k*1.1} ${x} ${y-k*.35}C${x+k*.7} ${y-k*1.1} ${x+k*1.6} ${y-k*.2} ${x} ${y+k*.9}Z`;
+  const star = (x, y, r) => 'M' + [...Array(10)].map((_, i) => { const a = -Math.PI/2 + i*Math.PI/5, q = i % 2 ? r*.45 : r; return (x + q*Math.cos(a)).toFixed(1) + ' ' + (y + q*Math.sin(a)).toFixed(1); }).join('L') + 'Z';
+  let n = 0;
+  const d = (el, p) => h(el, { key:n, className:'d', pathLength:1, style:{ '--dl':(.5 + n++*.16) + 's' }, ...p });
+  const f = (x, y) => h('circle', { key:'f'+x, className:'f', cx:x, cy:y, r:4.5, style:{ '--dl':'1.6s' } });
+  const petals = [...Array(6)].map((_, i) => d('circle', { cx:50 + 11*Math.cos(i*Math.PI/3), cy:165 + 11*Math.sin(i*Math.PI/3), r:6 }));
+  return h('svg', { className:'doodle', viewBox:'0 0 100 240', 'aria-hidden':true },
+    d('circle', { cx:50, cy:48, r:24 }),
+    d('path', { d:'M30 34L26 20L38 28L44 14L52 26L62 14L64 28L76 22L70 36' }),
+    d('path', { d:'M40 46q4-5 8 0M54 46q4-5 8 0' }),
+    d('path', { d:'M42 57q8 11 16 0Z' }),
+    d('path', { d:'M26 50q-6 4 0 10M74 50q6 4 0 10' }),
+    d('path', { d:'M34 74q16 12 32 0' }),
+    f(35, 54), f(65, 54),
+    d('path', { d:heart(26, 108, 7) }), d('path', { d:heart(74, 108, 7) }), d('path', { d:heart(50, 124, 5) }),
+    petals, d('circle', { cx:50, cy:165, r:5 }),
+    d('path', { d:star(20, 150, 7) }), d('path', { d:star(80, 150, 7) }), d('path', { d:star(22, 192, 6) }), d('path', { d:star(78, 192, 6) }),
+    d('path', { d:'M28 206q11-8 22 0t22 0' }),
+    h('text', { className:'dt', x:50, y:230, textAnchor:'middle', fontSize:20 }, 'Jyoti'));
+}
+
+function Reveal({ onReplay }) {
+  const [ph, setPh] = useState('s');
+  useEffect(() => {
+    const t = [setTimeout(() => setPh('r'), 1500), setTimeout(() => setPh('b'), 2800), setTimeout(() => setPh('u'), 5000)];
+    return () => t.forEach(clearTimeout);
+  }, []);
+  const parts = useMemo(() => {
+    const E = ['🌸','🌹','🌷','🌺','💮','🌼','💗'];
+    return [...Array(44)].map((_, i) => { const a = Math.random()*6.283, d = 140 + Math.random()*320;
+      return { e:E[i % E.length], dx:Math.cos(a)*d+'px', dy:Math.sin(a)*d+'px', r:(Math.random()*720-360)+'deg', fs:(22 + Math.random()*26)+'px', dl:(Math.random()*.25)+'s' }; });
+  }, []);
+  const fall = useMemo(() => [...Array(16)].map((_, i) => ({ e:['🌸','💗','🌷'][i % 3], l:Math.random()*100+'%', sx:(Math.random()*120-60)+'px', du:(6 + Math.random()*5)+'s', dl:(-Math.random()*8)+'s', fs:(18 + Math.random()*16)+'px' })), []);
+  const half = (cls, clip) => h('div', { className:'wh ' + cls, style:{ clipPath:clip } }, h('div', { className:'lbl' }, 'Click', h('br'), 'Here'));
+  return h('div', { className:`rv p-${ph}` + (ph !== 's' ? ' go' : '') },
+    h('div', { className:'bar' }, h('div', { className:'shk' }, h('div', { className:'chocbar' }, h(Doodles)), half('wl', CL), half('wr', CR))),
+    (ph === 'b' || ph === 'u') && h('div', { 'aria-hidden':true }, h('div', { className:'flare' }), parts.map((p, i) => h('span', { key:i, className:'bp', style:{ '--dx':p.dx, '--dy':p.dy, '--r':p.r, '--fs':p.fs, '--dl':p.dl } }, p.e))),
+    h('div', { className:'bunny' }, h(Bunny)),
+    ph === 'u' && fall.map((p, i) => h('span', { key:i, className:'petal', style:{ left:p.l, '--sx':p.sx, animationDuration:p.du, animationDelay:p.dl, fontSize:p.fs } }, p.e)),
+    h('button', { className:'re', onClick:onReplay }, 'Replay'));
+}
+
+function App() {
+  const [seen, setSeen] = useState([]), [open, setOpen] = useState(null), [stage, setStage] = useState('bq'), [run, setRun] = useState(0);
+  const onRose = i => { setOpen(i); setSeen(s => s.includes(i) ? s : [...s, i]); };
+  return h('div', { className:'stage' },
+    h(Bouquet, { key:run, seen, onRose, onChoco:() => setStage('rv') }),
+    h('div', { className:'hint' }, seen.length === 6 ? 'Now tap the chocolate.' : `Tap a rose to read it.`),
+    open !== null && h(RoseOpen, { key:open, i:open, onClose:() => setOpen(null) }),
+    stage === 'rv' && h(Reveal, { onReplay:() => { setStage('bq'); setRun(r => r + 1); } }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
